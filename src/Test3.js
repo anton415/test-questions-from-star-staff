@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 
 class Vehicle {
-  position = { x:0,y:0}
-  flySpeed = 0
-  moveSpeed = 0
+  constructor(position={x:0,y:0}, flySpeed=0, moveSpeed=0) {
+    this.position = position
+    this.flySpeed = flySpeed
+    this.moveSpeed = moveSpeed
+  }
 
   fly() {
-    this.position.y +=this.flySpeed
+    this.position.y += this.flySpeed
   }
 
   move() {
@@ -15,14 +17,20 @@ class Vehicle {
 }
 
 class Helicopter extends Vehicle {
-  moveSpeed = 300
-  flySpeed = 60
+  constructor(moveSpeed=300, flySpeed=60) {
+    super()
+    this.moveSpeed = moveSpeed
+    this.flySpeed = flySpeed
+  }
 }
 
 class Plane extends Vehicle {
-  moveSpeed = 200
-  verticalFlySpeed = 100
-  horisontalFlySpeed = 800
+  constructor(moveSpeed = 200, verticalFlySpeed = 100, horisontalFlySpeed = 800) {
+    super()
+    this.moveSpeed = moveSpeed
+    this.verticalFlySpeed = verticalFlySpeed
+    this.horisontalFlySpeed = horisontalFlySpeed
+  }
 
   fly() {
     this.position.y += this.verticalFlySpeed
@@ -31,12 +39,19 @@ class Plane extends Vehicle {
 }
 
 class Car extends Vehicle {
-  moveSpeed = 60
+  constructor(moveSpeed = 60) {
+    super(moveSpeed)
+    this.moveSpeed = moveSpeed
+  }
+
   fly() {/*cars couldn't fly*/}
 }
 
 class Rocket extends Vehicle {
-  flySpeed = 1000
+  constructor(flySpeed = 1000) {
+    this.flySpeed = flySpeed
+  }
+
   move() {/*rockets move only vertically*/}
 }
 
