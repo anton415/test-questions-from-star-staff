@@ -11,7 +11,6 @@ class App extends Component {
         <hr />
         <Test2 />
         <hr />
-        <Test3 />
       </div>
     );
   }
